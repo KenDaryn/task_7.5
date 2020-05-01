@@ -2,24 +2,25 @@
 <head>
     <meta charset="UTF-8">
     <link rel='stylesheet' type='text/css' href='style.css'>
-    <link rel='stylesheet' type='text/css' href='style.css'>
     <title>Анкета</title>
 </head>
 <body>
 <h3><b>Личный данные</b></h3>
-<p> <b>Имя:</b> </p> <p id = quote_name >Дарын</p>
-<p> <b>Фамилия:</b> <p id = quote_surname > Кенжебеков</p>
-<p> <b>Возраст:</b> <p id = quote_age > 31</p>
-<p> <b>Коротко о себе: </b> <p id = quote_about_me >Хочу стать разработчиком Web приложения</p>
+<p> <b>Имя:</b> </p> <p id ="quote_name">Дарын</p>
+<p> <b>Фамилия:</b> <p id ="quote_surname">Кенжебеков</p>
+<p> <b>Возраст:</b> <p id ="quote_age">31</p>
+<p> <b>Коротко о себе: </b> <p id ="quote_about_me">Хочу стать разработчиком Web приложения</p>
 <a href='' id='quote_link'>Редактировать</a>
-<div id='quote_block' style='display: none'>
-    <form action ''>
-        <input name = 'name' placeholder="Имя...">
-        <input name = 'surname' placeholder="Фамилия...">
-        <input name = 'age' placeholder="Возраст...">
-        <input name= 'about_me' placeholder="Коротко о себе...">
+<div id='quote_block' style='display: none'></div>
+    <form action=''>
+        <input name ='name' placeholder="Имя...">
+        <input name ='surname' placeholder="Фамилия...">
+        <input name ='age' placeholder="Возраст...">
+        <input name='about_me' placeholder="Коротко о себе...">
+        
         <input type='submit' value='Save'>
     </form>
+
 <script>
     const quoteLink = document.getElementById('quote_link');
     const quoteBlock = document.getElementById('quote_block');
@@ -27,7 +28,14 @@
 
     quoteLink.onclick = function (event) {
         event.preventDefault();
-        if (quoteBlock.style.display === 'none') {quoteBlock.style.display = 'inline-block';} else {quoteBlock.style.display = 'none'} }
+
+        if (quoteBlock.style.display === 'none') {
+        	quoteBlock.style.display = 'inline-block';
+    	} else {
+    	quoteBlock.style.display = 'none';
+    	}
+     }
+
         form.onsubmit = function (event) {
             event.preventDefault();
 
@@ -35,6 +43,9 @@
             document.getElementById('quote_surname').innerText = this.elements.surname.value;
             document.getElementById('quote_age').innerText = this.elements.age.value;
             document.getElementById('quote_about_me').innerText = this.elements.about_me.value;
+
+            this.reset();
+            quoteBlock.style.display = 'none';
         }
 </script>
 </body>
